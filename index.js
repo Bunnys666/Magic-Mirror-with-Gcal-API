@@ -21,6 +21,12 @@ fs.readFile("credentials.json", (err, content) => {
 	authorize(JSON.parse(content), listEvents);
 });
 
+try {
+	fs.unlinkSync(TOKEN_PATH);
+} catch (err) {
+	console.log(err);
+}
+
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
  * given callback function.

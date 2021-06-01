@@ -21,10 +21,11 @@ fs.readFile("credentials.json", (err, content) => {
 	authorize(JSON.parse(content), listEvents);
 });
 
+//remove file
 try {
-	fs.unlinkSync(TOKEN_PATH);
-} catch (err) {
-	console.log(err);
+	fs.unlink(TOKEN_PATH);
+} catch {
+	console.log("Token was removed");
 }
 
 /**

@@ -154,10 +154,8 @@ function eventToICalendar(event, googleEvents) {
 	googleEvents += "DESCRIPTION:" + event.description + "\n";
 	//diplayname penanggung jawab lurd
 	googleEvents += "ATTENDEES:" + event.attendees[0].displayName + "\n";
-
 	//nambahin status
 	googleEvents += "ATTENDEES:" + event.attendees[2].responseStatus + "\n";
-
 	googleEvents += "END:VEVENT\n";
 	return googleEvents;
 }

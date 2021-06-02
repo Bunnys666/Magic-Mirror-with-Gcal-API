@@ -22,11 +22,6 @@ fs.readFile("credentials.json", (err, content) => {
 });
 
 //remove file
-try {
-	fs.unlink(TOKEN_PATH);
-} catch {
-	console.log("Token was removed");
-}
 
 /**
  * Create an OAuth2 client with the given credentials, and then execute the

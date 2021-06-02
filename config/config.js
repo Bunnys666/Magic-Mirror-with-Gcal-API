@@ -85,7 +85,7 @@ var config = {
 			header: "Events",
 			position: "lower_third",
 			config: {
-				maximumEntries: "10",
+				maximumEntries: "4",
 				colored: true,
 				animationSpeed: "1000",
 				defaultSymbol: "calendar",

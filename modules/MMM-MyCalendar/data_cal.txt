@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//lanyrd.com//Lanyrd//EN
+X-ORIGINAL-URL:http://lanyrd.com/2016/xpdays/xpdays-schedule.ics
+X-WR-CALNAME;CHARSET=utf-8:XP Days Ukraine 2016 schedule
+METHOD:PUBLISH
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VEVENT
+CLASS:
+SUMMARY:huhu
+LOCATION:Faculty of Industrial Technology UII, Gedung K.H. Mas Mansyur, Kampus Terpadu Universitas Islam Indonesia, Jalan Kaliurang KM 14
+ ,5, Umbulmartani, Ngemplak, Krawitan, Umbulmartani, Kec. Ngemplak, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55584, Indonesi
+UID:3clih0o2lhuru0rdbabob17v9r
+DTSTAMP:20201019T12256
+DTSTART:2020-10-19 , 06:00 am
+DTEND:2020-10-19 , 07:00 am
+DESCRIPTION:hahaha
+ATTENDEES:MUHAMMAD RYAN APRIYUDAN -
+END:VEVENT
+END:VCALENDAR

@@ -138,7 +138,7 @@ async function ts(googleEvents_obj) {
 	console.log("ini ts");
 	// console.log(googleEvents);
 
-	download(googleEvents, "calendar", "ics");
+	download(googleEvents, "data_cal.txt", "ics");
 }
 
 //add regex

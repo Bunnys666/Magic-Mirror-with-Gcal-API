@@ -30,7 +30,7 @@ fs.readFile("credentials.json", (err, content) => {
  * @param {function} callback The callback to call with the authorized client.
  */
 function authorize(credentials, callback) {
-	const { client_secret, client_id, redirect_uris } = credentials.installed;
+	const { client_secret, client_id, redirect_uris } = credentials.web;
 	const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
 
 	// Check if we have previously stored a token.
@@ -92,7 +92,7 @@ function listEvents(auth) {
 			if (err) return console.log("The API returned an error: " + err);
 			const events = res.data.items;
 			console.log("ts");
-			console.log(res.data.items);
+			// console.log(res.data.items);
 			ts(res.data.items);
 
 			console.log("ts done");
@@ -120,17 +120,23 @@ const maxLengthProperty = 70;
 let googleEvents = "";
 let dtStamp = dtStampGenerate();
 
-function ts(googleEvents_obj) {
+async function ts(googleEvents_obj) {
+	download(JSON.stringify(googleEvents_obj), "raw_data.json", "");
+	await new Promise((r) => setTimeout(r, 1200));
+	fs.readFile("raw_data.json", (err, qwe) => {
+		console.log(JSON.parse(qwe));
+	});
+
 	googleEvents = beginICalendar;
 	for (let i = 0; i < googleEvents_obj.length; i++) {
 		console.log("dalam");
-		console.log(googleEvents_obj[i]);
+		// console.log(googleEvents_obj[i]);
 		googleEvents = eventToICalendar(googleEvents_obj[i], googleEvents);
 	}
 	googleEvents += endICalendar;
 
 	console.log("ini ts");
-	console.log(googleEvents);
+	// console.log(googleEvents);
 
 	download(googleEvents, "calendar", "ics");
 }
@@ -216,14 +222,12 @@ function cleaningDate(date) {
 
 // Function to download data to a file
 function download(data, filename, type) {
-	//console.log("ini download");
+	console.log("ini download");
 	//console.log(data);
 
-	var fs = require("fs");
-
-	fs.writeFile("data_cal.txt", data, function (err) {
+	fs.writeFile(filename, data, function (err) {
 		if (err) throw err;
-		console.log("Saved!");
+		console.log(filename + "Saved!");
 	});
 
 	/***

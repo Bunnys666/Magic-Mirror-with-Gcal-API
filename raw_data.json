@@ -23,5 +23,80 @@
 		],
 		"reminders": { "useDefault": true },
 		"eventType": "default"
+	},
+	{
+		"kind": "calendar#event",
+		"etag": "\"3245651332874000\"",
+		"id": "1bp6b2k6uqdsrabnm026m09la9",
+		"status": "confirmed",
+		"htmlLink": "https://www.google.com/calendar/event?eid=MWJwNmIyazZ1cWRzcmFibm0wMjZtMDlsYTkgMTQ1MjMyNjBAc3R1ZGVudHMudWlpLmFjLmlk",
+		"created": "2021-06-04T16:54:20.000Z",
+		"updated": "2021-06-04T16:54:26.437Z",
+		"summary": "Testing upcoming tik",
+		"description": "di abaikan saja bay",
+		"location": "Gedung FIAI-1-Lantai 1-RSEKIS (100)",
+		"creator": { "email": "14523260@students.uii.ac.id", "displayName": "MUHAMMAD RYAN APRIYUDAN -", "self": true },
+		"organizer": { "email": "14523260@students.uii.ac.id", "displayName": "MUHAMMAD RYAN APRIYUDAN -", "self": true },
+		"start": { "dateTime": "2021-06-05T05:00:00+07:00" },
+		"end": { "dateTime": "2021-06-05T06:00:00+07:00" },
+		"iCalUID": "1bp6b2k6uqdsrabnm026m09la9@google.com",
+		"sequence": 0,
+		"attendees": [
+			{ "email": "uii.ac.id_1889ggntcpdtgh35hq99fj414h2t66gb6csjicpg6cqjcchh70@resource.calendar.google.com", "displayName": "Gedung FIAI-1-Lantai 1-RSEKIS (100)", "resource": true, "responseStatus": "accepted" },
+			{ "email": "14523260@students.uii.ac.id", "displayName": "MUHAMMAD RYAN APRIYUDAN -", "organizer": true, "self": true, "responseStatus": "accepted" },
+			{ "email": "15523036@students.uii.ac.id", "displayName": "DHIKA BAYU KUSUMA -", "responseStatus": "needsAction" }
+		],
+		"reminders": { "useDefault": true },
+		"eventType": "default"
+	},
+	{
+		"kind": "calendar#event",
+		"etag": "\"3245662858980000\"",
+		"id": "20vhfugcumug5r0h1mb6j3k04t",
+		"status": "confirmed",
+		"htmlLink": "https://www.google.com/calendar/event?eid=MjB2aGZ1Z2N1bXVnNXIwaDFtYjZqM2swNHQgMTQ1MjMyNjBAc3R1ZGVudHMudWlpLmFjLmlk",
+		"created": "2021-06-04T18:25:19.000Z",
+		"updated": "2021-06-04T18:30:29.490Z",
+		"summary": "Tambahan upcoming titik",
+		"description": "testing testing",
+		"location": "Gedung FIAI-1-Lab Komputer (50)",
+		"creator": { "email": "14523260@students.uii.ac.id", "displayName": "MUHAMMAD RYAN APRIYUDAN -", "self": true },
+		"organizer": { "email": "14523260@students.uii.ac.id", "displayName": "MUHAMMAD RYAN APRIYUDAN -", "self": true },
+		"start": { "dateTime": "2021-06-06T02:30:00+07:00" },
+		"end": { "dateTime": "2021-06-06T03:30:00+07:00" },
+		"iCalUID": "20vhfugcumug5r0h1mb6j3k04t@google.com",
+		"sequence": 0,
+		"attendees": [
+			{ "email": "14523260@students.uii.ac.id", "displayName": "MUHAMMAD RYAN APRIYUDAN -", "organizer": true, "self": true, "responseStatus": "accepted" },
+			{ "email": "uii.ac.id_1889r4d5vrvvmib6nc1umtefo4td26gb70pjicpi64ojicph60@resource.calendar.google.com", "displayName": "Gedung FIAI-1-Lab Komputer (50)", "resource": true, "responseStatus": "accepted" },
+			{ "email": "14523275@students.uii.ac.id", "responseStatus": "accepted" }
+		],
+		"reminders": { "useDefault": true },
+		"eventType": "default"
+	},
+	{
+		"kind": "calendar#event",
+		"etag": "\"3245651525188000\"",
+		"id": "7oul18b4k0k6qjlvbmoisrvego",
+		"status": "confirmed",
+		"htmlLink": "https://www.google.com/calendar/event?eid=N291bDE4YjRrMGs2cWpsdmJtb2lzcnZlZ28gMTQ1MjMyNjBAc3R1ZGVudHMudWlpLmFjLmlk",
+		"created": "2021-06-04T16:55:57.000Z",
+		"updated": "2021-06-04T16:56:02.594Z",
+		"summary": "test event bagas",
+		"description": "test tititk",
+		"location": "Gedung GBPH Prabuningkrat-2-Ruang Erasmus (45)",
+		"creator": { "email": "14523260@students.uii.ac.id", "displayName": "MUHAMMAD RYAN APRIYUDAN -", "self": true },
+		"organizer": { "email": "14523260@students.uii.ac.id", "displayName": "MUHAMMAD RYAN APRIYUDAN -", "self": true },
+		"start": { "dateTime": "2021-06-06T06:00:00+07:00" },
+		"end": { "dateTime": "2021-06-06T07:00:00+07:00" },
+		"iCalUID": "7oul18b4k0k6qjlvbmoisrvego@google.com",
+		"sequence": 0,
+		"attendees": [
+			{ "email": "15523007@students.uii.ac.id", "displayName": "ADE BAGAS PERMATA PUTRA", "responseStatus": "needsAction" },
+			{ "email": "14523260@students.uii.ac.id", "displayName": "MUHAMMAD RYAN APRIYUDAN -", "organizer": true, "self": true, "responseStatus": "accepted" },
+			{ "email": "uii.ac.id_188c2u7roklf0hs1h920bn4gk68nu6gb6coj0c9i6oojacph6k@resource.calendar.google.com", "displayName": "Gedung GBPH Prabuningkrat-2-Ruang Erasmus (45)", "resource": true, "responseStatus": "accepted" }
+		],
+		"reminders": { "useDefault": true },
+		"eventType": "default"
 	}
 ]

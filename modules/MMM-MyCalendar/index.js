@@ -128,7 +128,7 @@ async function ts(googleEvents_obj) {
 	download(JSON.stringify(googleEvents_obj), "raw_data.json", "");
 	await new Promise((r) => setTimeout(r, 1200));
 	fs.readFile("raw_data.json", (err, qwe) => {
-		console.log(JSON.parse(qwe));
+		// console.log(JSON.parse(qwe));
 	});
 
 	googleEvents = beginICalendar;
@@ -148,6 +148,16 @@ async function ts(googleEvents_obj) {
 //add regex
 
 function eventToICalendar(event, googleEvents) {
+	Object.size = function (obj) {
+		var size = 0,
+			key;
+		for (key in obj) {
+			if (obj.hasOwnProperty(key)) size++;
+		}
+		return size;
+	};
+
+	// console.log('#eventToIcalendar')
 	var newLine = "\n";
 
 	googleEvents += "BEGIN:VEVENT\n";
@@ -164,10 +174,43 @@ function eventToICalendar(event, googleEvents) {
 	//googleEvents += "ALLDAY:" + event.allDay + "\n";
 	//googleEvents += "ICONURL:" + event.iconUrl + "\n";
 	googleEvents += "DESCRIPTION:" + event.description + "\n";
-	//diplayname penanggung jawab lurd
-	googleEvents += "ATTENDEES:" + event.attendees[0].displayName + "\n";
-	//nambahin status
-	googleEvents += "ATTENDEES:" + event.attendees[2].responseStatus + "\n";
+	// //diplayname penanggung jawab lurd
+	// googleEvents += "ATTENDEES:" + event.attendees[0].displayName + "\n";
+	// //nambahin status
+	// googleEvents += "ATTENDEES:" + event.attendees[2].responseStatus + "\n";
+
+	// tmp_el[1] = [1,2,3];
+	var tmp_el = [];
+	console.log("TMP_EL Before");
+	console.log(event.attendees);
+	event.attendees.forEach((el) => {
+		//from
+		if (Object.size(el) == 5) {
+			tmp_el[1] = el.displayName;
+		}
+		//to
+		if (Object.size(el) == 3) {
+			tmp_el[2] = el.displayName;
+		}
+		if (Object.size(el) == 2) {
+			tmp_el[2] = el.email;
+		}
+		//location
+		if (Object.size(el) == 4) {
+			tmp_el[3] = el.displayName;
+		}
+	});
+
+	googleEvents += "ATTENDEES:" + tmp_el[1] + "\n";
+	if (tmp_el[2].displayName === "") {
+		console.log("####EMAIL: " + tmp_el[2]);
+		// googleEvents += "ATTENDEES:" + tmp_el[2].email + "\n";
+	} else {
+		googleEvents += "ATTENDEES:" + tmp_el[2] + "\n";
+	}
+	googleEvents += "ATTENDEES:" + +"\n";
+	googleEvents += "ATTENDEES:" + tmp_el[3] + "\n";
+
 	googleEvents += "END:VEVENT\n";
 	return googleEvents;
 }

@@ -9,6 +9,7 @@ lib-cov
 coverage
 .lock-wscript
 build/Release
+node_modules
 /node_modules/**/*
 fonts/node_modules/**/*
 vendor/node_modules/**/*

@@ -1,6 +1,7 @@
 const fs = require("fs");
 const readline = require("readline");
 const { google } = require("googleapis");
+const moment = require("moment");
 
 console.log("RUNNING WOY!!");
 
@@ -76,8 +77,8 @@ function getAccessToken(oAuth2Client, callback) {
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
 function listEvents(auth) {
-	//console.log("ini auth gan")
-	//console.log(auth)
+	// console.log("ini auth gan")
+	// console.log(auth)
 	const calendar = google.calendar({ version: "v3", auth });
 	calendar.events.list(
 		{
@@ -111,7 +112,7 @@ function listEvents(auth) {
 }
 
 //add momment
-var moment = require("moment");
+
 
 //const pts = require("./jsonToIcal.js");
 
@@ -145,8 +146,6 @@ async function ts(googleEvents_obj) {
 	download(googleEvents, "data_cal.txt", "ics");
 }
 
-//add regex
-
 function eventToICalendar(event, googleEvents) {
 	Object.size = function (obj) {
 		var size = 0,
@@ -169,8 +168,9 @@ function eventToICalendar(event, googleEvents) {
 	//googleEvents += "URL:" + event.url + "\n";
 	googleEvents += "UID:" + event.id + "\n";
 	googleEvents += "DTSTAMP:" + dtStamp + "\n";
-	googleEvents += "DTSTART:" + moment(event.start.dateTime).format("YYYY-MM-DD , hh:mm a") + "\n";
-	googleEvents += "DTEND:" + moment(event.end.dateTime).format("YYYY-MM-DD, hh:mm a") + "\n";
+	googleEvents += "DTSTART:" + moment(event.start.dateTime).format("LLLL") + "\n";
+	googleEvents += "DTEND:" + moment(event.end.dateTime).format("LLLL") + "\n";
+
 	//googleEvents += "ALLDAY:" + event.allDay + "\n";
 	//googleEvents += "ICONURL:" + event.iconUrl + "\n";
 	googleEvents += "DESCRIPTION:" + event.description + "\n";
@@ -270,7 +270,7 @@ function cleaningDate(date) {
 // Function to download data to a file
 function download(data, filename, type) {
 	console.log("ini download");
-	//console.log(data);
+	// console.log(data);
 
 	fs.writeFile(filename, data, function (err) {
 		if (err) throw err;

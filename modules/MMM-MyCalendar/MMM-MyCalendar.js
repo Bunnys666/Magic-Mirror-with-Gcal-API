@@ -315,16 +315,17 @@ Module.register("MMM-MyCalendar", {
 				eventWrapper.appendChild(locationWrapper);
 
 				//tambah jam lurd
-				var timeWrapper = document.createElement("span");
-				timeWrapper.classList.add("time");
-				jamAwal = event.start.split(",")[1];
-				//bulan = event.start.split(',')[];
-				jamAkhir = event.end.split(",")[1];
-				timeWrapper.innerHTML = "waktu		: " + jamAwal + " - " + jamAkhir;
-				eventWrapper.appendChild(timeWrapper);
+				var waktuWrapper = document.createElement("span");
+				waktuWrapper.classList.add("time");
+				jamAwal = moment(event.start).format("dddd, hh:mm a");
+				// jamAkhir = event.end.split(",")[1];
+				jamAkhir = moment(event.end).format("hh:mm a");
+
+				waktuWrapper.innerHTML = "waktu		: " + jamAwal + " - " + jamAkhir;
+				eventWrapper.appendChild(waktuWrapper);
+				console.log(jamAwal);
 
 				//tambah description lurd
-
 				var descriptionWrapper = document.createElement("span");
 				descriptionWrapper.classList.add("description");
 				descriptionWrapper.innerHTML = "Deskripsi		: " + event.description;

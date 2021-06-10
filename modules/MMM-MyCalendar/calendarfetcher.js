@@ -194,7 +194,7 @@ var CalendarFetcher = function (
                   description: description,
                   attendees: attendees,
                   start: event.start,
-                  end: event.end
+                  end: event.end,
                 });
               }
             }

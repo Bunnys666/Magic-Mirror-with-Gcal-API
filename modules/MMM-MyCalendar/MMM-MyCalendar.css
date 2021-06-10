@@ -46,10 +46,17 @@
   line-height: 1.75;
 }
 
+.MMM-MyCalendar td.normal {
+  margin-left: 120px;
+}
+
+/* line */
 .MMM-MyCalendar table tr {
   border-bottom: solid 1px #222;
   vertical-align: top;
 }
+
+/* add id jangan lupa in here */
 
 .MMM-MyCalendar .calendar-event {
   position: relative;
@@ -88,7 +95,7 @@
 .MMM-MyCalendar .calendar-event.with-symbol .status,
 .MMM-MyCalendar .calendar-event.with-symbol .pj,
 .MMM-MyCalendar .calendar-event.with-symbol .description {
-  margin-left: 30px;
+  margin-left: 50px;
 }
 
 /*
@@ -113,6 +120,7 @@
   width: 24px;
   height: 24px;
   padding-top: 6px;
+  margin-left: 20px;
 }
 
 .MMM-MyCalendar .symbol span {

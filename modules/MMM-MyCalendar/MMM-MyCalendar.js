@@ -30,6 +30,7 @@ Module.register("MMM-MyCalendar", {
 		dateFormat: "MMMM D",
 		timeFormat: "h:mm A",
 		joiningWord: ", jam",
+		space: "<br>",
 		getRelative: 6,
 		fadePoint: 0.25, // Start on 1/4th of the list.
 		hidePrivate: false,
@@ -233,6 +234,7 @@ Module.register("MMM-MyCalendar", {
 			var oneMinute = oneSecond * 60;
 			var oneHour = oneMinute * 60;
 			var oneDay = oneHour * 24;
+			//ga digunakan
 			if (event.fullDayEvent) {
 				if (event.today) {
 					timeWrapper.innerHTML = this.capFirst(this.translate("TODAY"));
@@ -271,7 +273,8 @@ Module.register("MMM-MyCalendar", {
 							// This event is tomorrow
 							timeWrapper.innerHTML = this.capFirst(this.translate("TOMORROW")) + " " + this.config.joiningWord + " " + this.capFirst(moment(event.startDate, "x").format(this.config.timeFormat));
 						} else {
-							timeWrapper.innerHTML = this.capFirst(moment(event.startDate, "x").format(this.config.dayOfWeekFormat + " [" + this.config.joiningWord + "] " + this.config.timeFormat));
+							//remove here
+							timeWrapper.innerHTML = "";
 						}
 					} else {
 						/* Check to see if the user displays absolute or relative dates with their events
@@ -296,9 +299,7 @@ Module.register("MMM-MyCalendar", {
 					timeWrapper.innerHTML = this.capFirst(this.translate("RUNNING")) + " " + moment(event.endDate, "x").fromNow(true);
 				}
 			}
-
 			timeWrapper.className = "time light";
-
 			eventWrapper.appendChild(timeWrapper);
 
 			if (event.location && this.config.showLocation) {
@@ -318,12 +319,9 @@ Module.register("MMM-MyCalendar", {
 				var waktuWrapper = document.createElement("span");
 				waktuWrapper.classList.add("time");
 				jamAwal = moment(event.start).format("dddd, hh:mm a");
-				// jamAkhir = event.end.split(",")[1];
 				jamAkhir = moment(event.end).format("hh:mm a");
-
 				waktuWrapper.innerHTML = "waktu		: " + jamAwal + " - " + jamAkhir;
 				eventWrapper.appendChild(waktuWrapper);
-				console.log(jamAwal);
 
 				//tambah description lurd
 				var descriptionWrapper = document.createElement("span");
@@ -334,8 +332,7 @@ Module.register("MMM-MyCalendar", {
 				//tambah status lurd
 				var statusWrapper = document.createElement("span");
 				statusWrapper.classList.add("status");
-				event.attendeess = event.attendees.toString().split(",")[2];
-				statusWrapper.innerHTML = "Status		: " + event.attendeess;
+				statusWrapper.innerHTML = "Status		: " + event.attendees.responseStatus;
 				eventWrapper.appendChild(statusWrapper);
 			}
 
@@ -394,10 +391,9 @@ Module.register("MMM-MyCalendar", {
 		//tbody
 		td_kiri.appendChild(wrapper);
 		tr_body.appendChild(td_kanan);
-		td_kanan.className = "small";
+		td_kanan.className = "kanan";
 		tr_body.appendChild(td_kiri);
 		tr_body.appendChild(td_kanan);
-
 		tbody.appendChild(tr_body);
 
 		bungkus.appendChild(tbody);

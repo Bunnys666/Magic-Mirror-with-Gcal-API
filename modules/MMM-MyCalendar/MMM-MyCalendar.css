@@ -44,6 +44,7 @@
 
 .MMM-MyCalendar table td {
   line-height: 1.75;
+  height: 200px;
 }
 
 .MMM-MyCalendar td.normal {
@@ -96,6 +97,7 @@
 .MMM-MyCalendar .calendar-event.with-symbol .pj,
 .MMM-MyCalendar .calendar-event.with-symbol .description {
   margin-left: 50px;
+  height: max-content;
 }
 
 /*
@@ -142,8 +144,8 @@
 }
 
 .MMM-MyCalendar .line {
-  border-left: 3px solid #222;
-  height: 378px;
+  border-left: 2px solid #222;
+  height: 410px;
   position:absolute;
   left: 749px;
 }

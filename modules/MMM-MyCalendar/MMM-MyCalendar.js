@@ -138,6 +138,8 @@ Module.register("MMM-MyCalendar", {
 		var td_tengah = document.createElement("td");
 
 		var garis = document.createElement("div");
+		var garis_kiri = document.createElement("div");
+		var garis_kanan = document.createElement("div");
 		//debugger;
 		var events = this.createEventList();
 
@@ -389,6 +391,7 @@ Module.register("MMM-MyCalendar", {
 		thead.appendChild(tr_head);
 		bungkus.appendChild(thead);
 
+		
 		//tbody
 		td_kiri.appendChild(wrapper);
 		tr_body.appendChild(td_kanan);
@@ -398,6 +401,8 @@ Module.register("MMM-MyCalendar", {
 		tbody.appendChild(tr_body);
 		
 		garis.className = "line";
+		// garis_kiri.className = "line1";
+		// garis_kanan.className = "line2";
 
 		bungkus.appendChild(garis);
 

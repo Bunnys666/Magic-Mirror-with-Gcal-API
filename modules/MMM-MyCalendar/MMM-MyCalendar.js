@@ -137,6 +137,7 @@ Module.register("MMM-MyCalendar", {
 		var td_kanan = document.createElement("td");
 		var td_tengah = document.createElement("td");
 
+		var garis = document.createElement("div");
 		//debugger;
 		var events = this.createEventList();
 
@@ -356,7 +357,7 @@ Module.register("MMM-MyCalendar", {
 
 				td_n.className = "normal calendar-event with-symbol";
 
-				if (td_kanan.childElementCount < 3) {
+				if (td_kanan.childElementCount < 2) {
 					td_n.innerHTML = eventWrapper.innerHTML;
 					tr_n.appendChild(td_n);
 					td_kanan.appendChild(tr_n);
@@ -395,6 +396,11 @@ Module.register("MMM-MyCalendar", {
 		tr_body.appendChild(td_kiri);
 		tr_body.appendChild(td_kanan);
 		tbody.appendChild(tr_body);
+		
+		garis.className = "line";
+
+		bungkus.appendChild(garis);
+
 
 		bungkus.appendChild(tbody);
 

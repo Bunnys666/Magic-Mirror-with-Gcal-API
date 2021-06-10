@@ -140,3 +140,10 @@
   left: 0px;
   fill: currentColor;
 }
+
+.MMM-MyCalendar .line {
+  border-left: 3px solid #222;
+  height: 378px;
+  position:absolute;
+  left: 749px;
+}

@@ -136,10 +136,8 @@ Module.register("MMM-MyCalendar", {
 		var td_kiri = document.createElement("td");
 		var td_kanan = document.createElement("td");
 		var td_tengah = document.createElement("td");
-
+		var spasi = document.createElement("div");
 		var garis = document.createElement("div");
-		var garis_kiri = document.createElement("div");
-		var garis_kanan = document.createElement("div");
 		//debugger;
 		var events = this.createEventList();
 
@@ -292,7 +290,9 @@ Module.register("MMM-MyCalendar", {
 								// This event falls within the config.urgency period that the user has set
 								timeWrapper.innerHTML = this.capFirst(moment(event.startDate, "x").fromNow());
 							} else {
-								timeWrapper.innerHTML = this.capFirst(moment(event.startDate, "x").format(this.config.dateFormat + " [" + this.config.joiningWord + "] " + this.config.timeFormat));
+
+							timeWrapper.innerHTML = "";
+								// timeWrapper.innerHTML = this.capFirst(moment(event.startDate, "x").format(this.config.dateFormat + " [" + this.config.joiningWord + "] " + this.config.timeFormat));
 							}
 						} else {
 							timeWrapper.innerHTML = this.capFirst(moment(event.startDate, "x").fromNow());
@@ -304,6 +304,15 @@ Module.register("MMM-MyCalendar", {
 			}
 			timeWrapper.className = "time light";
 			eventWrapper.appendChild(timeWrapper);
+			
+			//limit untuk deskripsi
+			function r(string, limit) {
+				if (string.length > limit) {
+				  return string.substring(0, limit) + "..."
+				} else {
+				  return string
+				}
+			  }
 
 			if (event.location && this.config.showLocation) {
 				//tambah pj
@@ -329,8 +338,9 @@ Module.register("MMM-MyCalendar", {
 				//tambah description lurd
 				var descriptionWrapper = document.createElement("span");
 				descriptionWrapper.classList.add("description");
-				descriptionWrapper.innerHTML = "Deskripsi		: " + event.description;
+				descriptionWrapper.innerHTML = "Deskripsi		: " + r(event.description, 25);
 				eventWrapper.appendChild(descriptionWrapper);
+				
 
 				//tambah status lurd
 				var statusWrapper = document.createElement("span");
@@ -357,7 +367,7 @@ Module.register("MMM-MyCalendar", {
 				var tr_n = document.createElement("tr");
 				var td_n = document.createElement("td");
 
-				td_n.className = "normal calendar-event with-symbol";
+				td_n.className = "normal2 calendar-event with-symbol";
 
 				if (td_kanan.childElementCount < 2) {
 					td_n.innerHTML = eventWrapper.innerHTML;
@@ -365,7 +375,6 @@ Module.register("MMM-MyCalendar", {
 					td_kanan.appendChild(tr_n);
 				}
 			}
-
 			//debugger;
 			// Create fade effect.
 			if (this.config.fade && this.config.fadePoint < 1) {
@@ -405,8 +414,6 @@ Module.register("MMM-MyCalendar", {
 		// garis_kanan.className = "line2";
 
 		bungkus.appendChild(garis);
-
-
 		bungkus.appendChild(tbody);
 
 		return bungkus;

@@ -2,6 +2,7 @@ const fs = require("fs");
 const readline = require("readline");
 const { google } = require("googleapis");
 const moment = require("moment");
+const { objectHandlers } = require("./vendor/ical.js");
 
 console.log("RUNNING WOY!!");
 
@@ -191,17 +192,33 @@ function eventToICalendar(event, googleEvents) {
 		//to
 		if (Object.size(el) == 3) {
 			tmp_el[2] = el.displayName;
+
+			// tmp_el[2] = el.responseStatus;
 		}
 		if (Object.size(el) == 2) {
 			tmp_el[2] = el.email;
+
+			// tmp_el[5] = el.responseStatus;
 		}
 		//location
 		if (Object.size(el) == 4) {
 			tmp_el[3] = el.displayName;
 		}
+		// if (object.size(el) == 2) {
+		// 	tmp_el[4] = el.responseStatus;
+		// }
+	});
+
+	//add response status
+	var rp = []
+	event.attendees.forEach((al) => {
+		if (Object.size(al) == 3) {
+			rp[1] = al.responseStatus;
+		}
 	});
 
 	googleEvents += "ATTENDEES:" + tmp_el[1] + "\n";
+
 	if (tmp_el[2].displayName === "") {
 		console.log("####EMAIL: " + tmp_el[2]);
 		// googleEvents += "ATTENDEES:" + tmp_el[2].email + "\n";
@@ -209,8 +226,10 @@ function eventToICalendar(event, googleEvents) {
 		googleEvents += "ATTENDEES:" + tmp_el[2] + "\n";
 	}
 	googleEvents += "ATTENDEES:" + +"\n";
-	googleEvents += "ATTENDEES:" + tmp_el[3] + "\n";
+	googleEvents += "ATTENDEES:" + tmp_el[2] + "\n";
 
+	//add response status
+	googleEvents += "STATUS:" + rp[1] + "\n";
 	googleEvents += "END:VEVENT\n";
 	return googleEvents;
 }

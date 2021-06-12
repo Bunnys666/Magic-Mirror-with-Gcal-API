@@ -29,7 +29,7 @@ Module.register("MMM-MyCalendar", {
 		dayOfWeekFormat: "dddd",
 		dateFormat: "MMMM D",
 		timeFormat: "h:mm A",
-		joiningWord: "No Current Events Today!",
+		joiningWord: "",
 		getRelative: 6,
 		fadePoint: 0.25, // Start on 1/4th of the list.
 		hidePrivate: false,
@@ -135,7 +135,6 @@ Module.register("MMM-MyCalendar", {
 		var td_kiri = document.createElement("td");
 		var td_kanan = document.createElement("td");
 		var td_tengah = document.createElement("td");
-		var curr = document.createElement("div");
 		var garis = document.createElement("div");
 		//debugger;
 		var events = this.createEventList();
@@ -291,7 +290,8 @@ Module.register("MMM-MyCalendar", {
 							} else {
 
 							timeWrapper.innerHTML = "";
-								// timeWrapper.innerHTML = this.capFirst(moment(event.startDate, "x").format(this.config.dateFormat + " [" + this.config.joiningWord + "] " + this.config.timeFormat));
+								//remove here for upcoming
+								timeWrapper.innerHTML = this.capFirst(moment(event.startDate, "x").format(this.config.dateFormat + " [" + this.config.joiningWord + "] " + this.config.timeFormat));
 							}
 						} else {
 							timeWrapper.innerHTML = this.capFirst(moment(event.startDate, "x").fromNow());
@@ -343,7 +343,7 @@ Module.register("MMM-MyCalendar", {
 				//tambah status lurd
 				var statusWrapper = document.createElement("span");
 				statusWrapper.classList.add("status");
-				statusWrapper.innerHTML = "Status		: " + event.attendees.responseStatus;
+				statusWrapper.innerHTML = "Status		: " + event.attendees[1];
 				eventWrapper.appendChild(statusWrapper);
 			}
 
@@ -355,10 +355,6 @@ Module.register("MMM-MyCalendar", {
 
 			//add current event
 			if (events[e].today) {
-				
-				if (wrapper.childElementCount < 0) {
-					// wrapper.appendChild(curr) + "[" + this.config.joiningWord + "] ";
-				}
 				if (wrapper.childElementCount < 2) {
 					eventWrapperOuter.appendChild(eventWrapper);
 					wrapper.appendChild(eventWrapperOuter);
@@ -412,7 +408,6 @@ Module.register("MMM-MyCalendar", {
 		tbody.appendChild(tr_body);
 		
 		garis.className = "line";
-		curr.className = "curr";
 		// garis_kiri.className = "line1";
 		// garis_kanan.className = "line2";		
 		td_kiri.appendChild(garis);

@@ -1,6 +1,6 @@
 .MMM-MyCalendar {
   /*max-width: 500px;*/
-  max-width: 1500px;
+  max-width: 1300px;
 }
 
 .MMM-MyCalendar header {
@@ -96,7 +96,7 @@
 .MMM-MyCalendar .calendar-event.with-symbol .status,
 .MMM-MyCalendar .calendar-event.with-symbol .pj,
 .MMM-MyCalendar .calendar-event.with-symbol .description {
-  margin-left: 50px;
+  margin-left: 55px;
   height: max-content;
 }
 
@@ -143,9 +143,15 @@
   fill: currentColor;
 }
 
-.MMM-MyCalendar .line {
+ .line {
   border-left: 2px solid #222;
-  height: 410px;
+  height: 409px;
   position:absolute;
-  left: 749px;
+  left: 649px;
+}
+
+.normal2 {
+  border-bottom: solid 1px #222;
+  vertical-align: top;
+  width: 1010px;
 }

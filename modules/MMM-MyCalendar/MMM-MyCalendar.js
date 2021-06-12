@@ -29,8 +29,7 @@ Module.register("MMM-MyCalendar", {
 		dayOfWeekFormat: "dddd",
 		dateFormat: "MMMM D",
 		timeFormat: "h:mm A",
-		joiningWord: ", jam",
-		space: "<br>",
+		joiningWord: "No Current Events Today!",
 		getRelative: 6,
 		fadePoint: 0.25, // Start on 1/4th of the list.
 		hidePrivate: false,
@@ -136,7 +135,7 @@ Module.register("MMM-MyCalendar", {
 		var td_kiri = document.createElement("td");
 		var td_kanan = document.createElement("td");
 		var td_tengah = document.createElement("td");
-		var spasi = document.createElement("div");
+		var curr = document.createElement("div");
 		var garis = document.createElement("div");
 		//debugger;
 		var events = this.createEventList();
@@ -338,10 +337,9 @@ Module.register("MMM-MyCalendar", {
 				//tambah description lurd
 				var descriptionWrapper = document.createElement("span");
 				descriptionWrapper.classList.add("description");
-				descriptionWrapper.innerHTML = "Deskripsi		: " + r(event.description, 25);
+				descriptionWrapper.innerHTML = "Deskripsi		: " + r(event.description, 30);
 				eventWrapper.appendChild(descriptionWrapper);
 				
-
 				//tambah status lurd
 				var statusWrapper = document.createElement("span");
 				statusWrapper.classList.add("status");
@@ -357,6 +355,10 @@ Module.register("MMM-MyCalendar", {
 
 			//add current event
 			if (events[e].today) {
+				
+				if (wrapper.childElementCount < 0) {
+					// wrapper.appendChild(curr) + "[" + this.config.joiningWord + "] ";
+				}
 				if (wrapper.childElementCount < 2) {
 					eventWrapperOuter.appendChild(eventWrapper);
 					wrapper.appendChild(eventWrapperOuter);
@@ -410,9 +412,10 @@ Module.register("MMM-MyCalendar", {
 		tbody.appendChild(tr_body);
 		
 		garis.className = "line";
+		curr.className = "curr";
 		// garis_kiri.className = "line1";
-		// garis_kanan.className = "line2";
-
+		// garis_kanan.className = "line2";		
+		td_kiri.appendChild(garis);
 		bungkus.appendChild(garis);
 		bungkus.appendChild(tbody);
 
@@ -433,7 +436,6 @@ Module.register("MMM-MyCalendar", {
 				return true;
 			}
 		}
-
 		return false;
 	},
 

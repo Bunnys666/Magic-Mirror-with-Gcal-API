@@ -137,8 +137,7 @@ Module.register("MMM-MyCalendar", {
 		var td_kiri = document.createElement("td");
 		var td_kanan = document.createElement("td");
 		var td_tengah = document.createElement("td");
-		var garis = document.createElement("div");
-		//debugger;
+			//debugger;
 		var events = this.createEventList();
 
 		var wrapper = document.createElement("table");
@@ -428,8 +427,6 @@ Module.register("MMM-MyCalendar", {
 
 		tr_body.appendChild(td_kiri);
 		tr_body.appendChild(td_kanan);
-		
-		
 		tbody.appendChild(tr_body);
 		
 		

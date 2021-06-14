@@ -40,6 +40,8 @@
   font-size: 25px;
 }
 
+
+
 .MMM-MyCalendar .small {
   font-size: 25px;
   border-bottom: 0;
@@ -64,6 +66,12 @@
 
 /* line */
 .MMM-MyCalendar table tr {
+  border-bottom: solid 1px #222;
+  vertical-align: top;
+  width: 100%;
+}
+
+.MMM-MyCalendar tbody tr:first-child {
   border-bottom: solid 1px #222;
   vertical-align: top;
   width: 100%;
@@ -164,13 +172,23 @@
   left: 649px;
 } */
 
-.normal2 {
+/* .normal2 {
   border-bottom: solid 1px #222;
   vertical-align: top;
-  /* width: 500px; */
   line-height: 1.75;
 }
 
+.normal2:last-child {
+  border-bottom: solid 0 #222;
+  vertical-align: top;
+  line-height: 1.75;
+} */
+
 .kanan{
   border-left: 1px solid #222
+}
+
+.MMM-MyCalendar table:nth-child(2) tr {
+  /* background-color:white; */
+  border-bottom: 0;
 }

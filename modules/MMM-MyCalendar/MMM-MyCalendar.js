@@ -274,7 +274,7 @@ Module.register("MMM-MyCalendar", {
 							timeWrapper.innerHTML = this.capFirst(this.translate("TOMORROW")) + " " + this.config.joiningWord + " " + this.capFirst(moment(event.startDate, "x").format(this.config.timeFormat));
 						} else {
 							//remove here
-							timeWrapper.innerHTML = "didalam";
+							timeWrapper.innerHTML = "flag{d0gwQW0xCg==}";
 						}
 					} else {
 						/* Check to see if the user displays absolute or relative dates with their events
@@ -303,9 +303,7 @@ Module.register("MMM-MyCalendar", {
 					timeWrapper.innerHTML = "Berakhir Dalam" + " " + moment(event.endDate, "x").fromNow(true);
 				}
 			}
-			// console.log(timeWrapper)
-			timeWrapper.className = "time light";
-			eventWrapper.appendChild(timeWrapper);
+			
 			
 			//limit untuk deskripsi
 			function r(string, limit) {
@@ -315,6 +313,13 @@ Module.register("MMM-MyCalendar", {
 				  return string
 				}
 			  }
+
+			if (timeWrapper.innerHTML !== "flag{d0gwQW0xCg==}") {
+				// console.log(timeWrapper)
+			timeWrapper.className = "time light";
+			eventWrapper.appendChild(timeWrapper);
+
+			}
 
 			if (event.location && this.config.showLocation) {
 				//tambah pj
@@ -356,6 +361,15 @@ Module.register("MMM-MyCalendar", {
 				eventWrapper.appendChild(statusWrapper);
 			}
 
+			if (timeWrapper.innerHTML === "flag{d0gwQW0xCg==}") {
+				// console.log(timeWrapper)
+				timeWrapper.className = "time light";
+				timeWrapper.style.cssText = 'color: black;'
+				eventWrapper.appendChild(timeWrapper);
+				
+			}
+
+			console.log(timeWrapper)
 			//console.dir(event);
 
 			var eventWrapperOuter = document.createElement("tr");

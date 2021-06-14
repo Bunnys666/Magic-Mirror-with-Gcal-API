@@ -77,3 +77,4 @@ Temporary Items
 *.rej
 *.bak
 data_cal.txt
+raw_data.json

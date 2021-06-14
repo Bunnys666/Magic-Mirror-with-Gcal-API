@@ -192,8 +192,6 @@ function eventToICalendar(event, googleEvents) {
 		//to
 		if (Object.size(el) == 3) {
 			tmp_el[2] = el.displayName;
-			// tmp_el[]
-
 			// tmp_el[2] = el.responseStatus;
 		}
 		if (Object.size(el) == 2) {
@@ -214,7 +212,7 @@ function eventToICalendar(event, googleEvents) {
 	var rp = []
 	event.attendees.forEach((al) => {
 		if (Object.size(al) == 3) {
-			rp[1] = al.responseStatus;
+			rp[0] = al.responseStatus;
 		}
 	});
 
@@ -230,7 +228,7 @@ function eventToICalendar(event, googleEvents) {
 	googleEvents += "ATTENDEES:" + tmp_el[3] + "\n";
 
 	//add response status
-	googleEvents += "STATUS:" + rp[1] + "\n";
+	googleEvents += "ATTENDEES:" + rp[0] + "\n";
 	googleEvents += "END:VEVENT\n";
 	return googleEvents;
 }

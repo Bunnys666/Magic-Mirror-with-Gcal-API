@@ -234,6 +234,7 @@ Module.register("MMM-MyCalendar", {
 			var oneHour = oneMinute * 60;
 			var oneDay = oneHour * 24;
 			//ga digunakan
+			// debugger
 			if (event.fullDayEvent) {
 				if (event.today) {
 					timeWrapper.innerHTML = this.capFirst(this.translate("TODAY"));
@@ -273,7 +274,7 @@ Module.register("MMM-MyCalendar", {
 							timeWrapper.innerHTML = this.capFirst(this.translate("TOMORROW")) + " " + this.config.joiningWord + " " + this.capFirst(moment(event.startDate, "x").format(this.config.timeFormat));
 						} else {
 							//remove here
-							timeWrapper.innerHTML = "";
+							timeWrapper.innerHTML = "didalam";
 						}
 					} else {
 						/* Check to see if the user displays absolute or relative dates with their events
@@ -298,9 +299,11 @@ Module.register("MMM-MyCalendar", {
 						}
 					}
 				} else {
-					timeWrapper.innerHTML = this.capFirst(this.translate("RUNNING")) + " " + moment(event.endDate, "x").fromNow(true);
+					//this
+					timeWrapper.innerHTML = "Berakhir Dalam" + " " + moment(event.endDate, "x").fromNow(true);
 				}
 			}
+			// console.log(timeWrapper)
 			timeWrapper.className = "time light";
 			eventWrapper.appendChild(timeWrapper);
 			
@@ -331,7 +334,7 @@ Module.register("MMM-MyCalendar", {
 				waktuWrapper.classList.add("time");
 				jamAwal = moment(event.start).format("dddd, hh:mm a");
 				jamAkhir = moment(event.end).format("hh:mm a");
-				waktuWrapper.innerHTML = "waktu		: " + jamAwal + " - " + jamAkhir;
+				waktuWrapper.innerHTML = "Waktu		: " + jamAwal + " - " + jamAkhir;
 				eventWrapper.appendChild(waktuWrapper);
 
 				//tambah description lurd
@@ -341,13 +344,18 @@ Module.register("MMM-MyCalendar", {
 				eventWrapper.appendChild(descriptionWrapper);
 				
 				//tambah status lurd
+				// debugger
 				var statusWrapper = document.createElement("span");
 				statusWrapper.classList.add("status");
-				statusWrapper.innerHTML = "Status		: " + event.attendees[0];
+				
+				if (event.attendees[3] === 'needsAction') {
+					statusWrapper.innerHTML = "Status		: Belum adanya konfirmasi";
+				} else {
+					statusWrapper.innerHTML = "Status		: Ruangan sudah pesan";
+				}
 				eventWrapper.appendChild(statusWrapper);
 			}
 
-			//console.log("test attendes");
 			//console.dir(event);
 
 			var eventWrapperOuter = document.createElement("tr");
@@ -415,7 +423,7 @@ Module.register("MMM-MyCalendar", {
 		td_kanan.className = "kanan";
 
 		// console.log(td_kiri.childElementCount+td_kanan.childElementCount)
-		console.log(wrapper.childElementCount)
+		// console.log(wrapper.childElementCount)
 		if(wrapper.childElementCount === 0) {
 			td_kiri.innerHTML = "No current event today..."
 			td_kiri.style.cssText = "vertical-align: middle;"

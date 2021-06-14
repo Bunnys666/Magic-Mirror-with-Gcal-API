@@ -415,8 +415,8 @@ Module.register("MMM-MyCalendar", {
 		td_kanan.className = "kanan";
 
 		// console.log(td_kiri.childElementCount+td_kanan.childElementCount)
-
-		if(td_kiri.childElementCount === 0) {
+		console.log(wrapper.childElementCount)
+		if(wrapper.childElementCount === 0) {
 			td_kiri.innerHTML = "No current event today..."
 			td_kiri.style.cssText = "vertical-align: middle;"
 		}

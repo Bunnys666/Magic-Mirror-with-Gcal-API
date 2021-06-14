@@ -1,10 +1,12 @@
 .MMM-MyCalendar {
   /*max-width: 500px;*/
   max-width: 1300px;
+  /* adding new */
+  margin-bottom: 50px;
 }
 
 .MMM-MyCalendar header {
-  font-size: 19px;
+  font-size: 20px;
 }
 
 .MMM-MyCalendar .symbol {
@@ -40,7 +42,16 @@
 
 .MMM-MyCalendar .small {
   font-size: 25px;
-}
+  border-bottom: 0;
+ }
+
+/* .MMM-MyCalendar .small  tr td:first-child{
+  border-right: solid 1px #222;
+} */
+
+/* .MMM-MyCalendar .small  tr td:last-child{
+  border-bottom: solid 0px #222;
+} */
 
 .MMM-MyCalendar table td {
   line-height: 1.75;
@@ -55,6 +66,7 @@
 .MMM-MyCalendar table tr {
   border-bottom: solid 1px #222;
   vertical-align: top;
+  width: 100%;
 }
 
 /* add id jangan lupa in here */
@@ -71,6 +83,7 @@
   display: block;
   line-height: 1.25;
   margin-top: 10px;
+  margin-bottom: 5px;
 }
 .MMM-MyCalendar .time,
 .MMM-MyCalendar .location,
@@ -143,17 +156,21 @@
   left: 0px;
   fill: currentColor;
 }
-
+/* 
  .line {
   border-left: 2px solid #222;
   height: 410px;
   position:absolute;
   left: 649px;
-}
+} */
 
 .normal2 {
   border-bottom: solid 1px #222;
   vertical-align: top;
-  width: 1010px;
+  /* width: 500px; */
   line-height: 1.75;
+}
+
+.kanan{
+  border-left: 1px solid #222
 }

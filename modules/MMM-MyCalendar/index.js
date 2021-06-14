@@ -192,6 +192,7 @@ function eventToICalendar(event, googleEvents) {
 		//to
 		if (Object.size(el) == 3) {
 			tmp_el[2] = el.displayName;
+			// tmp_el[]
 
 			// tmp_el[2] = el.responseStatus;
 		}
@@ -225,8 +226,8 @@ function eventToICalendar(event, googleEvents) {
 	} else {
 		googleEvents += "ATTENDEES:" + tmp_el[2] + "\n";
 	}
-	googleEvents += "ATTENDEES:" + +"\n";
-	googleEvents += "ATTENDEES:" + tmp_el[2] + "\n";
+	// googleEvents += "ATTENDEES:" + +"\n";
+	googleEvents += "ATTENDEES:" + tmp_el[3] + "\n";
 
 	//add response status
 	googleEvents += "STATUS:" + rp[1] + "\n";

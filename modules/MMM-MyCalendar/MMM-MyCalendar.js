@@ -30,6 +30,7 @@ Module.register("MMM-MyCalendar", {
 		dateFormat: "MMMM D",
 		timeFormat: "h:mm A",
 		joiningWord: "",
+		word: "No Current event today",
 		getRelative: 6,
 		fadePoint: 0.25, // Start on 1/4th of the list.
 		hidePrivate: false,
@@ -72,7 +73,8 @@ Module.register("MMM-MyCalendar", {
 		Log.log("Starting module: " + this.name);
 
 		// Set locale.
-		moment.locale(config.language);
+		moment.locale("id");
+
 
 		for (var c in this.config.calendars) {
 			var calendar = this.config.calendars[c];
@@ -145,7 +147,6 @@ Module.register("MMM-MyCalendar", {
 		if (events.length === 0) {
 			wrapper.innerHTML = this.loaded ? this.translate("EMPTY") : this.translate("LOADING");
 			wrapper.className = "small dimmed";
-
 			return wrapper;
 		}
 
@@ -291,7 +292,7 @@ Module.register("MMM-MyCalendar", {
 
 							timeWrapper.innerHTML = "";
 								//remove here for upcoming
-								timeWrapper.innerHTML = this.capFirst(moment(event.startDate, "x").format(this.config.dateFormat + " [" + this.config.joiningWord + "] " + this.config.timeFormat));
+								// timeWrapper.innerHTML = this.capFirst(moment(event.startDate, "x").format(this.config.dateFormat + " [" + this.config.joiningWord + "] " + this.config.timeFormat));
 							}
 						} else {
 							timeWrapper.innerHTML = this.capFirst(moment(event.startDate, "x").fromNow());
@@ -343,7 +344,7 @@ Module.register("MMM-MyCalendar", {
 				//tambah status lurd
 				var statusWrapper = document.createElement("span");
 				statusWrapper.classList.add("status");
-				statusWrapper.innerHTML = "Status		: " + event.attendees[1];
+				statusWrapper.innerHTML = "Status		: " + event.attendees[0];
 				eventWrapper.appendChild(statusWrapper);
 			}
 
@@ -364,13 +365,22 @@ Module.register("MMM-MyCalendar", {
 
 				var tr_n = document.createElement("tr");
 				var td_n = document.createElement("td");
+				// var th = document.createElement("div");
+				var wrp2 = document.createElement("table");
+				wrp2.className = "small";
 
 				td_n.className = "normal2 calendar-event with-symbol";
+
+				// if (td_kanan.childElementCount == 0) {
+				// 	tr_n.appendChild(th);
+				// 	td_kanan.appendChild(tr_n);
+				// }
 
 				if (td_kanan.childElementCount < 2) {
 					td_n.innerHTML = eventWrapper.innerHTML;
 					tr_n.appendChild(td_n);
-					td_kanan.appendChild(tr_n);
+					wrp2.appendChild(tr_n);
+					td_kanan.appendChild(wrp2);
 				}
 			}
 			//debugger;
@@ -401,19 +411,37 @@ Module.register("MMM-MyCalendar", {
 		
 		//tbody
 		td_kiri.appendChild(wrapper);
+		td_kiri.className = "kiri";
 		tr_body.appendChild(td_kanan);
 		td_kanan.className = "kanan";
+
+		// console.log(td_kiri.childElementCount+td_kanan.childElementCount)
+
+		if(td_kiri.childElementCount === 0) {
+			td_kiri.innerHTML = "No current event today..."
+			td_kiri.style.cssText = "vertical-align: middle;"
+		}
+		if(td_kanan.childElementCount === 0) {
+			td_kanan.innerHTML = "No upcoming event today..."
+			td_kanan.style.cssText = "vertical-align: middle;"
+		}
+
 		tr_body.appendChild(td_kiri);
 		tr_body.appendChild(td_kanan);
+		
+		
 		tbody.appendChild(tr_body);
 		
-		garis.className = "line";
+		
+		
+		// garis.className = "line";
 		// garis_kiri.className = "line1";
 		// garis_kanan.className = "line2";		
-		td_kiri.appendChild(garis);
-		bungkus.appendChild(garis);
+
+		// th1.appendChild(garis);
 		bungkus.appendChild(tbody);
 
+		// bungkus.innerHTML = "Nothing happen!!"
 		return bungkus;
 	},
 

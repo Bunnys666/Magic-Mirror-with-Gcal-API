@@ -154,7 +154,7 @@ var CalendarFetcher = function (
           //custom undefined
           var location = event.location || false;
           if (location == "undefined") {
-            location = "Tidak Ada";
+            location = "Tidak Ada Ruangan";
           }
 
           var geo = event.geo || false;

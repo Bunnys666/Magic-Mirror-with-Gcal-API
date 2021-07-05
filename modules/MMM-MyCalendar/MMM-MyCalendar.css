@@ -1,8 +1,10 @@
 .MMM-MyCalendar {
   /*max-width: 500px;*/
   max-width: 1300px;
+
   /* adding new */
-  margin-bottom: 50px;
+  /* margin-bottom: 0.5 px; */
+  height: 320px;
 }
 
 .MMM-MyCalendar header {

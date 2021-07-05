@@ -356,7 +356,7 @@ Module.register("MMM-MyCalendar", {
 				if (event.attendees[3] === 'needsAction') {
 					statusWrapper.innerHTML = "Status		: Belum adanya konfirmasi";
 				} else {
-					statusWrapper.innerHTML = "Status		: Ruangan sudah pesan";
+					statusWrapper.innerHTML = "Status		: Ruangan sudah dipesan";
 				}
 				eventWrapper.appendChild(statusWrapper);
 			}
@@ -439,11 +439,11 @@ Module.register("MMM-MyCalendar", {
 		// console.log(td_kiri.childElementCount+td_kanan.childElementCount)
 		// console.log(wrapper.childElementCount)
 		if(wrapper.childElementCount === 0) {
-			td_kiri.innerHTML = "No current event today..."
+			td_kiri.innerHTML = "No Current Events..."
 			td_kiri.style.cssText = "vertical-align: middle;"
 		}
 		if(td_kanan.childElementCount === 0) {
-			td_kanan.innerHTML = "No upcoming event today..."
+			td_kanan.innerHTML = "No Upcoming Events..."
 			td_kanan.style.cssText = "vertical-align: middle;"
 		}
 

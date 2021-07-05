@@ -136,7 +136,7 @@ async function ts(googleEvents_obj) {
 	googleEvents = beginICalendar;
 	for (let i = 0; i < googleEvents_obj.length; i++) {
 		console.log("dalam");
-		// console.log(googleEvents_obj[i]);
+		console.log(googleEvents_obj[i]);
 		googleEvents = eventToICalendar(googleEvents_obj[i], googleEvents);
 	}
 	googleEvents += endICalendar;
@@ -192,20 +192,14 @@ function eventToICalendar(event, googleEvents) {
 		//to
 		if (Object.size(el) == 3) {
 			tmp_el[2] = el.displayName;
-			// tmp_el[2] = el.responseStatus;
 		}
 		if (Object.size(el) == 2) {
 			tmp_el[2] = el.email;
-
-			// tmp_el[5] = el.responseStatus;
 		}
 		//location
 		if (Object.size(el) == 4) {
 			tmp_el[3] = el.displayName;
 		}
-		// if (object.size(el) == 2) {
-		// 	tmp_el[4] = el.responseStatus;
-		// }
 	});
 
 	//add response status
